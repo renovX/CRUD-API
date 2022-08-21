@@ -4,6 +4,7 @@ const app=express();
 const bodyParser=require('body-parser')
 const crudRoutes=require('./routes/crud')
 
+let port=process.env.PORT||3000
 app.use(bodyParser.urlencoded({ extended: false }));
 app.get((req,res,next)=>
 {
@@ -19,5 +20,5 @@ app.use((req,res,next)=>
 slz.sync().
 then(()=>{
 
-    app.listen(3000,()=>{console.log("Listening on Port")})
+    app.listen(port,()=>{console.log("Listening on Port: "+port)})
 })
